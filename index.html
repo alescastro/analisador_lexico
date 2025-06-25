@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Analisador Léxico</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="module">
+        import { registerToken, removeToken, initTokens, onTokenRowClick } from './js/token-manager.js';
+        import { handleMainTyping, handleTokenTyping } from './js/input-handlers.js';
+        import { clearConsoleOutput, randomWord } from './js/dom-utils.js';
+
+        // Expondo funções para uso com onclick no HTML
+        window.registerToken = registerToken;
+        window.removeToken = removeToken;
+        window.onTokenRowClick = onTokenRowClick;
+        window.clearConsoleOutput = clearConsoleOutput;
+        window.randomWord = randomWord;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initTokens();
+            document.getElementById("input-main").addEventListener("keypress", handleMainTyping);
+            document.getElementById("input-token").addEventListener("keypress", handleTokenTyping);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Analisador Léxico</h1>
+
+        <div class="flex-grid">
+            <!-- Seção de Tokens -->
+            <div class="card">
+                <h2>Gerenciar Tokens</h2>
+                <input id="input-token" type="text" placeholder="Digite um token" />
+                <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                    <button onclick="registerToken()">Salvar</button>
+                    <button class="danger" onclick="removeToken()">Excluir</button>
+                    <button class="secondary" onclick="randomWord()">Gerar Aleatório</button>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr><th>#</th><th>Token</th></tr>
+                        </thead>
+                        <tbody id="table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Seção de Console -->
+            <div class="card">
+                <h2>Reconhecimento de Palavras</h2>
+                <input id="input-main" type="text" placeholder="Digite palavras aqui..." />
+                <div style="margin-bottom: 10px;">
+                    <button class="secondary" onclick="clearConsoleOutput()">Limpar Console</button>
+                </div>
+                <div id="console" class="console-output"></div>
+            </div>
+        </div>
+
+        <!-- Tabela de Transições -->
+        <div class="card">
+            <h2>Tabela de Transições</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr id="head-row">
+                            <th>#</th> <!-- Letras A-Z serão preenchidas via JS -->
+                        </tr>
+                    </thead>
+                    <tbody id="state-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

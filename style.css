@@ -1,0 +1,143 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #1e1e1e;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Grid de seção */
+.flex-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Cartões */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+input[type="text"] {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+/* Botões */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.danger {
+    background-color: #dc3545;
+}
+
+button.danger:hover {
+    background-color: #a71d2a;
+}
+
+button.secondary {
+    background-color: #6c757d;
+}
+
+button.secondary:hover {
+    background-color: #565e64;
+}
+
+/* Console de saída */
+.console-output {
+    min-height: 100px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.95rem;
+}
+
+/* Tabela */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: #f1f1f1;
+    position: sticky;
+    top: 0;
+}
+
+tr.selected {
+    background-color: #d1ecf1;
+}
+
+td.found {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .flex-grid {
+        grid-template-columns: 1fr;
+    }
+}
