@@ -11,7 +11,7 @@
         import { handleMainTyping, handleTokenTyping } from './js/input-handlers.js';
         import { clearConsoleOutput, randomWord } from './js/dom-utils.js';
 
-        // Expondo funções para uso com onclick no HTML
+        // funções onclick no HTML
         window.registerToken = registerToken;
         window.removeToken = removeToken;
         window.onTokenRowClick = onTokenRowClick;
@@ -30,7 +30,6 @@
         <h1>Analisador Léxico</h1>
 
         <div class="flex-grid">
-            <!-- Seção de Tokens -->
             <div class="card">
                 <h2>Gerenciar Tokens</h2>
                 <input id="input-token" type="text" placeholder="Digite um token" />
@@ -49,7 +48,6 @@
                 </div>
             </div>
 
-            <!-- Seção de Console -->
             <div class="card">
                 <h2>Reconhecimento de Palavras</h2>
                 <input id="input-main" type="text" placeholder="Digite palavras aqui..." />
@@ -60,14 +58,13 @@
             </div>
         </div>
 
-        <!-- Tabela de Transições -->
         <div class="card">
             <h2>Tabela de Transições</h2>
             <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr id="head-row">
-                            <th>#</th> <!-- Letras A-Z serão preenchidas via JS -->
+                            <th>#</th> 
                         </tr>
                     </thead>
                     <tbody id="state-table-body"></tbody>
